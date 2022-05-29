@@ -1,3 +1,5 @@
+//部分代码借鉴于网络
+
 package main
 
 import (

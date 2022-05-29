@@ -7,24 +7,23 @@ import (
 )
 
 const (
-	//bookname = "斗罗大陆"
-	//author   = "唐家三少"
-	//filePath = "C:/Users/cai'cheng/Desktop/xiaoshuo/txt/" //项目根目录前缀
+	msg = "======================================笔趣阁小说爬虫v1.0======================================\n" +
+		"免责声明：本爬虫仅供资料学习，请勿滥用，地址：https://github.com/caicheng918/biqugeNovelCrawl\n" +
+		"测试阶段存在bug，不是所有小说都可以爬取。\n" +
+		"==============================================================================================="
+
 	filePath = "./" //项目根目录前缀
 )
 
 func main() {
-
 	var bookname, author string
 	println(msg)
-
 	println("第一步，请输入书名和作者，以空格分开:")
 	fmt.Scanln(&bookname, &author)
 	err := MkdirForTxt(bookname)
 	if err == nil {
 		println("已创建", bookname, "文件夹")
 	}
-	println("bookname:", bookname, "author:", author)
 	var secModeNum int
 	println("第二步，请选择模式编号:\n1.下载模式\n2.小说追更\n输入编号:")
 	fmt.Scanln(&secModeNum)
@@ -37,7 +36,7 @@ func main() {
 				log.Fatal(err)
 			}
 		}()
-		println("已选择下载模式\n第三步，请选择下载模式编号:\n1.单章逐个下载\n2.合集下载\n输入编号:")
+		println("已选择下载模式\n第三步，请选择下载模式编号:\n1.单章逐个下载\n2.合集下载\n输入编号立即爬取:")
 		fmt.Scanln(&thirdModeNum)
 		if thirdModeNum == 1 {
 			//单章逐个下载
