@@ -24,10 +24,9 @@ func DeleDir(dirname string) error {
 	return err
 }
 
-// 单文件模式，将字符串，写入文本文件
-func WriteToTxt(content, bookname string) {
-	//wd, _ := os.Getwd()
-	filepath := filePath + bookname // 存放小说的TXT文件路径
+// 将字符串添加写入文本文件
+func WriteToTxt(content, bookname, dirname string) {
+	filepath := filePath + dirname + "/" + bookname // 存放小说的TXT文件路径
 	file, err := os.OpenFile(filepath, os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		fmt.Println(err)
