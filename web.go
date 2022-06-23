@@ -3,7 +3,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net"
 	"net/http"
@@ -18,7 +17,7 @@ import (
 
 // findStartUrl 根据小说名和作者找到 colly 的 startUrl
 func FindStartUrl(name string, author string) (string, error) {
-	println("开始解析", name, "...")
+	log.Println("开始解析", name, "...")
 	var targetUrl string
 	var Err error
 
@@ -70,7 +69,7 @@ func FindStartUrl(name string, author string) (string, error) {
 	if !ok {
 		log.Fatalln("解析", name, "起始url失败，请重启程序")
 	}
-	fmt.Println("解析", name, "成功")
+	log.Println("解析", name, "成功")
 	return "https://www.xbiquge.la" + startUrl, Err
 }
 

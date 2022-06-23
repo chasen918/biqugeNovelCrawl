@@ -18,7 +18,7 @@ const (
 func main() {
 	var bookname, author string
 	println(msg)
-	println("第一步，请输入书名和作者，以空格分开:")
+	println("第一步，请依次输入书名和作者，以空格分开:")
 	fmt.Scanln(&bookname, &author)
 
 	startUrl, err := FindStartUrl(bookname, author)
@@ -28,7 +28,7 @@ func main() {
 
 	err = MkdirForTxt(bookname)
 	if err == nil {
-		println("已创建", bookname, "文件夹")
+		log.Println("已创建", bookname, "文件夹")
 	}
 	var secModeNum int
 	println("第二步，请选择模式编号:\n1.下载模式\n输入编号:")
@@ -40,7 +40,7 @@ func main() {
 		fmt.Scanln(&thirdModeNum)
 		if thirdModeNum == 1 {
 			//单章逐个下载
-			println("开始爬取", bookname, "...")
+			log.Println("开始爬取", bookname, "...")
 			Crawl(startUrl, bookname, 1)
 			return
 		}
@@ -53,7 +53,7 @@ func main() {
 				return
 			}
 			defer file.Close()
-			println("开始爬取", bookname, "...")
+			log.Println("开始爬取", bookname, "...")
 			Crawl(startUrl, bookname, 2)
 			return
 		}
