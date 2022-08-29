@@ -5,4 +5,4 @@
 1、在目录下执行go run . (需要go环境)
 2、运行biqugeNovelCrawl.exe
 
-# 暂时弃坑
+# 忙于工作，暂时弃坑
